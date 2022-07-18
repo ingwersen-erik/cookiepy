@@ -2,7 +2,6 @@
 
    <p align="center"><img align="left" height="120" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><br><br><h1>cookiepy</h1><br>
 
-::
 
 .. badges-begin
 
@@ -37,11 +36,7 @@
 
 .. badges-end
 
-
-✨📚✨ `Documnetação completa`__
-
-__ https://cookiepy.readthedocs.io/
-
+-----
 
 Descrição
 =========
@@ -49,6 +44,16 @@ Descrição
 Template para a criação e configuração de novos repositórios Python para aplicações de
 ciência de dados.
 
+
+Documentação do Projeto
+=======================
+
+
+✨📚✨ `Documnetação completa`__
+
+__ https://cookiepy.readthedocs.io/
+
+-----
 
 Instruções de uso
 -----------------
@@ -96,7 +101,6 @@ Exemplo do `cookiepy` em ação
    <p align="center"><img src="./docs/_static/demo-acelerador-dda.gif" alt="Demo"/></p>
    <br>
 
-::
 
 Funcionalidades
 ===============
