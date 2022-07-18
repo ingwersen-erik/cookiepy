@@ -4,27 +4,28 @@
 Hooks called after generating the project structure.
 """
 
-from __future__ import print_function, annotations
+from __future__ import annotations, print_function
+
 import contextlib
-import sys
-import os
 import json
+import os
+import sys
 from pathlib import Path
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-COOKIECUTTER_FILE = ".cookiecutter.json"
+COOKIECUTTER_FILE = '.cookiecutter.json'
 
 
 def reindent_cookiecutter_json(cookiecutter_json: str | Path = COOKIECUTTER_FILE) -> None:
     """
     Indent `.cookiecutter.json <./.cookiecutter.json>`_ using two spaces.
 
-    The jsonify extension distributed with Cookiecutter uses an indentation
-    width of four spaces. This indentation width conflicts with the default
-    indentation required by Prettier for JSON files. Code executes Prettier
-    as a pre-commit hook in continuous integration (CI). Pre-commit hooks define
-    a set of rules and transformations, applied to the project files
-    before the user pushes new commits to the repository.
+    "jsonify" extension uses an indentation width of four spaces.
+    This indentation width conflicts with the default indentation required by
+    Prettier for JSON files. Code executes Prettier as a pre-commit hook in
+    continuous integration (CI). Pre-commit hooks define a set of rules and
+    transformations, applied to the project files before the user pushes new commits
+    to the repository.
 
     Parameters
     ----------
@@ -62,40 +63,40 @@ def remove_file(filepath: str | Path) -> None:
 
     Examples
     --------
-    The following example, creates a dummy file, proves it exists, and then removes it.
+    The following example, creates a fake file, proves it exists, and then removes it.
     >>> from pathlib import Path
     >>> import os
     >>> import subprocess
     >>> test_path = 'test'
     >>> test_path = Path(test_path + str(hash(test_path))).with_suffix('.txt')
     >>> test_path.touch(exist_ok=True)
-    >>> if os.name != "nt":
+    >>> if os.name != 'nt':
     ...     resp = subprocess.run(['ls'], capture_output=True).stdout
     ... else:
     ...     resp = subprocess.run(['dir'], capture_output=True).stdout
-    >>>print('b{}'.format(test_path.name) in resp)  # noqa
+    >>> print('b{}'.format(test_path.name) in resp)  # noqa
     True
     >>> remove_file(test_path)
-    >>>print('b{}'.format(test_path.name) in resp)  # noqa
+    >>> print('b{}'.format(test_path.name) in resp)  # noqa
     False
     """
     with contextlib.suppress(FileNotFoundError):
         os.remove(os.path.join(PROJECT_DIRECTORY, str(filepath)))
 
 
-def create_dotenv(project_path: str | Path = PROJECT_DIRECTORY) -> None:
+def create_dotenv(project_filepath: str | Path = PROJECT_DIRECTORY) -> None:
     """
     Create a `.env` file inside the project directory.
 
     The `.env` file stores environment variables. The environment variables
-    often store sensitive information such as passwords.
-    Additionally, you might use `.env` to define configurations
+    often store sensitive information like passwords.
+    Also, you might use `.env` to define configurations
     that vary with machine. For example, directories paths of the
     package and other files.
 
     Parameters
     ----------
-    project_path : str | Path, optional
+    project_filepath : str | Path, default: `PROJECT_DIRECTORY`
         The path of the project. The default is the current working directory.
 
     .. tip::
@@ -107,26 +108,27 @@ def create_dotenv(project_path: str | Path = PROJECT_DIRECTORY) -> None:
         uses this suffix to determine which values represent directories, and
         creates them if they don't exist. Another way to do this is to
         change the `if 'DIRECTORY' in config_name:...` condition, replacing
-        the word "DIRECTORY" to the desired one. If the later option is used,
-        don't forget to also change the suffix used in the `env_configs` keys
+        the word “DIRECTORY” to the desired one. If you use the later option,
+        don't forget to change the suffix used in the `env_configs` keys
         names.
-
     """
-    project_path = Path(project_path)
-    env_filepath = project_path.joinpath('.env')
+    project_filepath = Path(project_filepath)
+    env_filepath = project_filepath.joinpath('.env')
     env_filepath.touch(exist_ok=True)
     env_configs = {
         'PROJECT_NAME': '{{ cookiecutter.project_name }}',
         'PACKAGE_NAME': '{{ cookiecutter.package_name }}',
-        'PROJECT_DIRECTORY': str(project_path.resolve()),
+        'PROJECT_DIRECTORY': str(project_filepath.resolve()),
         'PACKAGE_DIRECTORY': str(
-            project_path.joinpath(
-                'src/{{ cookiecutter.package_name }}'
+            project_filepath.joinpath(
+                f'src{os.path.sep}{"{{ cookiecutter.package_name }}"}'
             )
         ),
-        'LOGS_DIRECTORY': str(project_path.joinpath('logs')),
-        'DATA_DIRECTORY': str(project_path.joinpath('data')),
-        'OUTPUTS_DIRECTORY': str(project_path.joinpath('outputs')),
+        'LOGS_DIRECTORY': str(project_filepath.joinpath('logs')),
+        'DATA_DIRECTORY': str(project_filepath.joinpath('data')),
+        'DATA_RAW_DIRECTORY': str(project_filepath.joinpath(f'data{os.path.sep}raw')),
+        'DATA_OUTPUT_DIRECTORY': str(project_filepath.joinpath(f'data{os.path.sep}outputs')),
+        'OUTPUTS_DIRECTORY': str(project_filepath.joinpath('outputs')),
     }
     with open(str(env_filepath), 'w', encoding='utf-8') as fp:
         for config_name, config_value in env_configs.items():
