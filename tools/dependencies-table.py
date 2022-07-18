@@ -1,12 +1,13 @@
 """
 Print restructuredText ('.rst') table of dependencies.
 """
-from __future__ import absolute_import, division, print_function
+from __future__ import absolute_import, annotations, division, print_function
 import argparse
 import datetime
 import os
 import re
 from pathlib import Path
+from typing import Any, Dict
 
 try:
     import tomli
@@ -55,6 +56,37 @@ def format_dependency(dependency: str) -> str:
     return 'coverage__' if dependency == 'coverage' else f'{dependency}_'
 
 
+def get_dependencies(data: Dict[str, Any]) -> set:
+    """Get the dependencies from the pyproject.toml file."""
+    return {
+        canonicalize_name(dependency) for section in
+        ['dependencies', 'dev-dependencies'] for dependency in
+        data['tool']['poetry'][section].keys() if dependency != 'python'
+    }
+
+
+def get_descriptions(data: Dict[str, Any], dependencies: set) -> Dict[str, str]:
+    """Get the descriptions from the poetry.lock file."""
+    return {
+        canonicalize_name(package['name']): truncate_description(package['description'])
+        for package in data['package'] if package['name'] in dependencies}
+
+
+def read_tomli(path: Path | str, jinja=False) -> dict[str, Any]:
+    """Read the contents of a ".toml", or ".lock" file."""
+    if isinstance(path, str):
+        path = Path(path)
+    if not path.is_file():
+        raise FileNotFoundError(f'Could not find file: {path.resolve()}')
+    if path.suffix in {'.toml', '.lock'}:
+        raise ValueError(f'Invalid file extension: {path.suffix}')
+    data = path.read_text()
+    if jinja:
+        data = JINJA_PATTERN.sub('', data)
+        data = JINJA_PATTERN2.sub('x', data)
+    return tomli.loads(data)
+
+
 def main(save: bool = False) -> None:
     """Print restructuredText table of dependencies.
 
@@ -81,27 +113,14 @@ def main(save: bool = False) -> None:
     If a description to a dependency doesn't exist, function will leave it  blank.
     """
     path = Path(f'{PROJECT}{os.path.sep}pyproject.toml')
-    text = path.read_text()
-    text = JINJA_PATTERN.sub('', text)
-    text = JINJA_PATTERN2.sub('x', text)
-    data = tomli.loads(text)
+    data = read_tomli(path, True)
 
-    dependencies = {
-        canonicalize_name(dependency)
-        for section in ['dependencies', 'dev-dependencies']
-        for dependency in data['tool']['poetry'][section].keys()
-        if dependency != 'python'
-    }
+    dependencies = get_dependencies(data)
 
     path = Path(f'{PROJECT}{os.path.sep}poetry.lock')
-    text = path.read_text()
-    data = tomli.loads(text)
+    data = read_tomli(path)
 
-    descriptions = {
-        canonicalize_name(package['name']): truncate_description(package['description'])
-        for package in data['package']
-        if package['name'] in dependencies
-    }
+    descriptions = get_descriptions(data, dependencies)
 
     table = {
         format_dependency(dependency): descriptions.get(dependency, '')
