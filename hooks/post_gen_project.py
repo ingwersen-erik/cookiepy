@@ -160,7 +160,3 @@ if __name__ == "__main__":
             os.system('pip install -U poetry')
         finally:
             os.system('poetry update')
-            requirements_output = Path(PROJECT_DIRECTORY).joinpath('requirements.txt')
-            if requirements_output.exists():
-                remove_file(requirements_output)
-            os.system(f'poetry export --output {requirements_output} --without-hashes --ansi')

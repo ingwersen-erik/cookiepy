@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
 title: Getting Started
-authors: [erik]
+authors: [ingwersen]
 ---
 
-![](../../docs/_static/EY_logo_1.gif)
+![](../../docs/_static/EY_logo_5.gif)
 
 
 [![Project Status](https://badgen.net/badge/status/alpha/d8624d)](https://badgen.net/badge/status/alpha/d8624d)
