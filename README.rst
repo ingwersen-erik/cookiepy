@@ -96,7 +96,9 @@ Exemplo do `cookiepy` em ação
 
 .. raw:: html
 
-   <p align="center"><img align="left" width="120" height="120" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p>
+   <img align="left" width="540" height="540" src="./docs/_static/demo-acelerador-dda
+.gif" alt="Demo">
+
 
 
 Funcionalidades
