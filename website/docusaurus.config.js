@@ -6,14 +6,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'Cookiepy',
+    title: 'cookiepy',
     tagline: 'Cookiecutter for Python projects.',
-    baseUrl: '/',
-    url: 'https://ingwersen-erik.github.io',
+    baseUrl: '/cookiepy/',
+    deploymentBranch: 'documentation',
+    url: 'https://ingwersen-erik.github.io/',
     trailingSlash: false,
     onBrokenLinks: 'ignore',
     onBrokenMarkdownLinks: 'ignore',
     favicon: 'img/logo.ico',
+
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: 'ingwersen-erik', // Usually your GitHub org/user name.
