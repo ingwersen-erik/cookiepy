@@ -1,11 +1,8 @@
 .. raw:: html
 
-   <p align="center"><img align="left" width="120" height="120" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p>
+   <p align="center"><img align="left" height="120" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><br><br><h1>cookiepy</h1><br>
 
-
-========
-cookiepy
-========
+::
 
 .. badges-begin
 
@@ -41,7 +38,7 @@ cookiepy
 .. badges-end
 
 
-✨📚✨ `Read the full documentation`__
+✨📚✨ `Documnetação completa`__
 
 __ https://cookiepy.readthedocs.io/
 
@@ -96,10 +93,10 @@ Exemplo do `cookiepy` em ação
 
 .. raw:: html
 
-   <img align="left" width="540" height="540" src="./docs/_static/demo-acelerador-dda
-.gif" alt="Demo">
+   <p align="center"><img src="./docs/_static/demo-acelerador-dda.gif" alt="Demo"/></p>
+   <br>
 
-
+::
 
 Funcionalidades
 ===============
@@ -172,9 +169,10 @@ Este template possui as seguintes funcionalidades, que são automaticamente incl
 Estrutura do repositório
 ========================
 
-.. raw: txt
 
-    .
+.. code-block:: text
+
+    cookiepy
     ├── CODE_OF_CONDUCT.rst             <- Código de conduta (copiado de outros templates).
     ├── CONTRIBUTING.rst                <- Guia de contribuição. Está em inglês.
     ├── LICENSE.rst                     <- Licença do projeto (por enquanto está como MIT)
@@ -182,13 +180,12 @@ Estrutura do repositório
     ├── cookiecutter.json               <- Instruções para a geração do template.
     ├── docs                            <- Diretório com arquivos da documentação.
     ├── hooks                           <- Diretório contêm os hooks pré e pós execução do comando cookiecutter.
-    ├── noxfile.py                      <-
+    ├── noxfile.py                      <- Arquivo nox
     ├── poetry.lock                     <- Dependências do projeto.
     ├── pycharm.sh                      <- Arquivo para inicializar o PyCharm.
-    ├── pyproject.toml
+    ├── pyproject.toml                  <- Configurações do projeto.
     ├── tools                           <- ferramentas extras para o desenvolvimento do cookiepy.
     └── {{cookiecutter.project_name}}   <- Template do pacote que será criado.
-
 
 
 TO-DO
@@ -197,3 +194,5 @@ TO-DO
 - [ ] Traduzir o template para português. A minha intenção inicial era criar o
 cookiecutter em inglês, por uma facilidade minha em escrever em inglês e também porque
 a maioria dos projetos requrem código escrito em inglês.
+- [ ] Melhorar tutoriais de como usar.
+- [ ] Criar tutoriais, explicando a functionalidade de cada ferramenta.
