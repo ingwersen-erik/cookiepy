@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Change directory
+        run: cd website
       - uses: actions/setup-node@v3
         with:
           node-version: 18
