@@ -195,8 +195,6 @@ Estrutura do repositório
 TO-DO
 =====
 
-- [ ] Traduzir o template para português. A minha intenção inicial era criar o
-cookiecutter em inglês, por uma facilidade minha em escrever em inglês e também porque
-a maioria dos projetos requrem código escrito em inglês.
+- [ ] Traduzir o template para português. A minha intenção inicial era criar o cookiecutter em inglês, por uma facilidade minha em escrever em inglês e também porque a maioria dos projetos requrem código escrito em inglês.
 - [ ] Melhorar tutoriais de como usar.
 - [ ] Criar tutoriais, explicando a functionalidade de cada ferramenta.
