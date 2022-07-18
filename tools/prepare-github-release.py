@@ -1,21 +1,27 @@
 """
-Prepare GitHub repository.
+Prepare GitHub release.
 """
 from __future__ import annotations, absolute_import
+import os
+import sys
 import datetime
 import subprocess
-import sys
 from pathlib import Path
 from typing import Any, Iterable, List, Optional
 
-import click
+try:
+    import click
+except ImportError:
+    print('Installing `click` package, required to run this script.')
+    os.system('pip install -U click')
+    import click  # noqa
 
 try:
-    import github3
+    import github3  # noqa
 except ImportError as import_exc:
-    import os
+    print('Installing `github3` package, required to run this script.')
     os.system('pip install -U github3.py')
-    import github3
+    import github3  # noqa
 
 
 def git(*args: str, **kwargs: Any) -> str:
@@ -28,7 +34,7 @@ def git(*args: str, **kwargs: Any) -> str:
         For example, `['commit', '--message', 'message']`.
     kwargs : Any
         Keyword arguments to pass to `subprocess.run`.
-        These are arguments that need a value.
+        These arguments need a value.
         For example, `check=True` for `git commit` command.
 
     Returns
@@ -154,7 +160,7 @@ def prepare_release(
         body=release.body,
     )
 
-    click.echo(f'opened #{pull_request.number}')
+    click.echo(f'Opened #{pull_request.number}')
 
     pull_request = repository.pull_request(pull_request.number)
     labels = pull_request.issue().add_labels(*label_names)
@@ -163,7 +169,7 @@ def prepare_release(
         if name not in {label.name for label in labels}:
             raise RuntimeError(f'label {name} missing from #{pull_request.number}')
 
-    click.echo(f'added labels {", ".join(label_names)} to #{pull_request.number}')
+    click.echo(f'Added labels {", ".join(label_names)} to #{pull_request.number}')
 
 
 @click.command()
@@ -182,36 +188,36 @@ def prepare_release(
     help='GitHub repository',
 )
 @click.option(
-    "--token",
-    metavar="TOKEN",
+    '--token',
+    metavar='TOKEN',
     required=True,
-    envvar="GITHUB_TOKEN",
-    help="GitHub API token",
+    envvar='GITHUB_TOKEN',
+    help='GitHub API token',
 )
 @click.option(
-    "--remote",
-    metavar="REMOTE",
-    default="origin",
-    help="remote for GitHub repository",
+    '--remote',
+    metavar='REMOTE',
+    default='origin',
+    help='Remote for GitHub repository',
 )
 @click.option(
-    "--base",
-    metavar="BRANCH",
-    default="main",
-    help="default branch of the GitHub repository",
+    '--base',
+    metavar='BRANCH',
+    default='main',
+    help='Default branch of the GitHub repository',
 )
 @click.option(
-    "--bump",
-    metavar="FILE",
+    '--bump',
+    metavar='FILE',
     multiple=True,
-    help="bump the version in these files (may be specified multiple times)",
+    help='Bump the version in these files (may be specified multiple times)',
 )
 @click.option(
     "labels",
-    "--label",
-    metavar="LABEL",
+    '--label',
+    metavar='LABEL',
     multiple=True,
-    help="labels for the pull request (may be specified multiple times)",
+    help='Labels for the pull request (may be specified multiple times)',
 )
 @click.argument("tag", required=False)
 def main(
@@ -234,7 +240,7 @@ def main(
     """
     if tag is None:
         today = datetime.date.today()
-        tag = f"{today:%Y.%-m.%-d}"
+        tag = f'{today:%Y.%-m.%-d}'
 
     try:
         prepare_release(
@@ -248,9 +254,9 @@ def main(
             tag=tag,
         )
     except Exception as error:
-        click.secho(f"error: {error}", fg="red")
+        click.secho(f'Error: {error}', fg='red')
         sys.exit(1)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main(prog_name='prepare-github-release')

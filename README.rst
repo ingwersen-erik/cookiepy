@@ -1,11 +1,12 @@
-========
-cookiepy
-========
+.. raw:: html
+
+   <p align="center"><img align="left" height="120" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><br><br><h1>cookiepy</h1><br>
+
 
 .. badges-begin
 
-| |Status| |Python Version| |CalVer| |License|
-| |Read the Docs| |Tests| |Codecov|
+| |Status| |Python Version| |License|
+| |Read the Docs| |Codecov|
 | |pre-commit| |Black| |Contributor Covenant|
 
 .. |Status| image:: https://badgen.net/badge/status/alpha/d8624d
@@ -14,18 +15,12 @@ cookiepy
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/cookiepy-instance
    :target: https://github.com/ingwersen-erik/cookiepy
    :alt: Python Version
-.. |CalVer| image:: https://img.shields.io/badge/calver-YYYY.MM.DD-22bfda.svg
-   :target: http://calver.org/
-   :alt: CalVer
 .. |License| image:: https://img.shields.io/github/license/ingwersen-erik/cookiepy
    :target: https://opensource.org/licenses/MIT
    :alt: License
 .. |Read the Docs| image:: https://img.shields.io/readthedocs/cookiepy/latest.svg?label=Read%20the%20Docs
    :target: https://cookiepy.readthedocs.io/
    :alt: Read the documentation at https://cookiepy.readthedocs.io/
-.. |Tests| image:: https://github.com/ingwersen-erik/cookiepy/workflows/Tests/badge.svg
-   :target: https://github.com/ingwersen-erik/cookiepy/actions?workflow=Tests
-   :alt: Tests
 .. |Codecov| image:: https://codecov.io/gh/ingwersen-erik/cookiepy-instance/branch/main/graph/badge.svg
    :target: https://codecov.io/gh/ingwersen-erik/cookiepy-instance
    :alt: Codecov
@@ -41,17 +36,7 @@ cookiepy
 
 .. badges-end
 
-|
-
-.. raw:: html
-
-   <p align="center"><img alt="logo" src="./docs/_static/EY_logo_1.gif" width="50%" /></p>
-
-
-✨📚✨ `Read the full documentation`__
-
-__ https://cookiepy.readthedocs.io/
-
+-----
 
 Descrição
 =========
@@ -60,11 +45,22 @@ Template para a criação e configuração de novos repositórios Python para ap
 ciência de dados.
 
 
+Documentação do Projeto
+=======================
+
+
+✨📚✨ `Documnetação completa`__
+
+__ https://cookiepy.readthedocs.io/
+
+-----
+
 Instruções de uso
 -----------------
 
 Para usar esse template, você precisa instalar o pacote `cookiecutter
-<https://cookiecutter.readthedocs.io/en/latest/>`_ no ambiente de desenvolvimento Python:
+<https://cookiecutter.readthedocs.io/en/latest/>`_ no seu ambiente de desenvolvimento
+Python:
 
 .. code-block:: console
 
@@ -78,24 +74,38 @@ Para usar esse template, você precisa instalar o pacote `cookiecutter
 
     pip install -U cookiecutter
 
+ou:
 
-Alguns sistemas bloqueia a instalação de pacotes de terceiros.
+.. code-block:: console
+
+    pip install --user cookiecutter
+
+Alguns sistemas bloqueiam a instalação de pacotes de terceiros.
 A opção `--user` informa o Python que o pacote deve ser instalado
 somente para o seu usuário. Esse tipo de bloqueio ocorre com bastante
 frequência no Windows.
 
-Após a instalação do `cookiecutter
-<https://cookiecutter.readthedocs.io/en/latest/>`_, execute o seguinte comando:
+Após a instalação do `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_,
+execute o seguinte comando:
 
 .. code-block:: console
 
-   $ cookiecutter gh:ingwersen-erik/cookiepy --checkout=2021.11.26
+   $ cookiecutter gh:ingwersen-erik/cookiepy
+
+
+Exemplo do `cookiepy` em ação
+-----------------------------
+
+.. raw:: html
+
+   <p align="center"><img src="./docs/_static/demo-acelerador-dda.gif" alt="Demo"/></p>
+   <br>
 
 
 Funcionalidades
 ===============
 
-Este template possui as seguintes funcionalidades, que sao automaticamente inclusas:
+Este template possui as seguintes funcionalidades, que são automaticamente inclusas:
 
 .. features-begin
 
@@ -158,3 +168,33 @@ Este template possui as seguintes funcionalidades, que sao automaticamente inclu
 .. _GitHub Labeler: https://github.com/marketplace/actions/github-labeler
 
 .. references-end
+
+
+Estrutura do repositório
+========================
+
+
+.. code-block:: text
+
+    cookiepy
+    ├── CODE_OF_CONDUCT.rst             <- Código de conduta (copiado de outros templates).
+    ├── CONTRIBUTING.rst                <- Guia de contribuição. Está em inglês.
+    ├── LICENSE.rst                     <- Licença do projeto (por enquanto está como MIT)
+    ├── README.rst                      <- Este arquivo que você está lendo.
+    ├── cookiecutter.json               <- Instruções para a geração do template.
+    ├── docs                            <- Diretório com arquivos da documentação.
+    ├── hooks                           <- Diretório contêm os hooks pré e pós execução do comando cookiecutter.
+    ├── noxfile.py                      <- Arquivo nox
+    ├── poetry.lock                     <- Dependências do projeto.
+    ├── pycharm.sh                      <- Arquivo para inicializar o PyCharm.
+    ├── pyproject.toml                  <- Configurações do projeto.
+    ├── tools                           <- ferramentas extras para o desenvolvimento do cookiepy.
+    └── {{cookiecutter.project_name}}   <- Template do pacote que será criado.
+
+
+TO-DO
+=====
+
+- [ ] Traduzir o template para português. A minha intenção inicial era criar o cookiecutter em inglês, por uma facilidade minha em escrever em inglês e também porque a maioria dos projetos requrem código escrito em inglês.
+- [ ] Melhorar tutoriais de como usar.
+- [ ] Criar tutoriais, explicando a functionalidade de cada ferramenta.
