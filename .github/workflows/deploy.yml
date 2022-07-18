@@ -15,16 +15,8 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-      - name: Change directory
-        run: cd website
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build website
-        run: yarn build
-      - name: Change back directory
-        run: |
-          echo $PWD
-          cd ..
+        run: cd website && yarn install && yarn build
       - uses: redkubes/docusaurus-deploy-action@v1
         with:
           source-folder: website
