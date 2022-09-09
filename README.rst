@@ -1,12 +1,12 @@
+.. Logo EY
+
 .. raw:: html
 
-   <p align="center"><img align="left" width="100px" height="120px" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><br><br><h1>cookiepy</h1><br>
-
+   <p align="center"><img align="left" style="object-fit: none; object-position: -120px 120px; width: 100px; height: 120px" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><h1>  cookiepy</h1><br>
 
 .. badges-begin
 
-| |Status| |Python Version| |License|
-| |Read the Docs| |Codecov|
+| |Status| |Python Version| |License| |Read the Docs| |Codecov|
 | |pre-commit| |Black| |Contributor Covenant|
 
 .. |Status| image:: https://badgen.net/badge/status/alpha/d8624d
@@ -35,6 +35,33 @@
    :alt: Contributor Covenant
 
 .. badges-end
+
+.. raw:: html
+
+   <br>
+
+.. Project authors:
+.. _Erik Ingwersen: https://github.com/ingwersen-erik
+
+.. Project Wiki:
+.. _EY DDA: https://www.ey.com/en_gl/big-data-analytics
+
+.. bibliographic fields:
+
+:Author: `Erik Ingwersen`_
+:Contact: erik.ingwersen@br.ey.com
+:organization: `EY DDA`_
+:date: 2022-09-09 (Thu, 09 Sep 2022)
+:status: Pre-Alpha
+:version: 0.1.0
+:copyright: Copyright (c) EY Brazil, Inc. and its affiliates. All Rights Reserved.
+
+.. meta::
+   :keywords: Cookiecutter, cookiepy, Acelerador DDA
+   :description lang=pt: Readme do pacote cookiepy.
+
+:abstract:
+    Cookiecutter para o Acelerador de projetos EY DDA.
 
 -----
 
