@@ -1,6 +1,6 @@
 .. raw:: html
 
-   <p align="center"><img align="left" height="120" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><br><br><h1>cookiepy</h1><br>
+   <p align="center"><img align="left" width="100px" height="120px" src="./docs/_static/EY_logo_1.gif" alt="EY Logo"></p><br><br><br><h1>cookiepy</h1><br>
 
 
 .. badges-begin
@@ -41,60 +41,60 @@
 Descrição
 =========
 
-Template para a criação e configuração de novos repositórios Python para aplicações de
+Template para a criação e configuração de novos repositórios Python para aplicações voltadas a
 ciência de dados.
+
+**:warning: Importante:** Esta ferramenta assume que você tenha um conhecimento prévio de como criar pacotes em Python e, como usar ferrametas de 
+versionamento de código (GitHub, Bitbucket, Gitlab, etc.).
 
 
 Documentação do Projeto
 =======================
 
-
-✨📚✨ `Documnetação completa`__
+✨📚✨ `Link para documnetação`__
 
 __ https://cookiepy.readthedocs.io/
 
 -----
 
-Instruções de uso
------------------
+Quickstart
+----------
 
-Para usar esse template, você precisa instalar o pacote `cookiecutter
-<https://cookiecutter.readthedocs.io/en/latest/>`_ no seu ambiente de desenvolvimento
-Python:
-
-.. code-block:: console
-
-    pip install cookiecutter
-
-
-**Observação:** caso um erro ocorra, ao executar o comando acima, inclua a opçao `-U`, ou
-`--user` ao comando anterior:
+Para usar o ``cookiepy``, você precisa primeiramente instalar o pacote `cookiecutter
+<https://cookiecutter.readthedocs.io/en/latest/>`_ no seu ambiente de desenvolvimento:
 
 .. code-block:: console
 
-    pip install -U cookiecutter
+    $ pip install cookiecutter
 
-ou:
+
+**:bulb: Observação:** caso você encontre um erro ao executar o comando acima, tente executar novamente,
+incluindo a opçao ``-U``, ou ``--user``:
 
 .. code-block:: console
 
-    pip install --user cookiecutter
+    $ pip install -U cookiecutter
+    # Mesmo que:
+    $ pip install --user cookiecutter
 
-Alguns sistemas bloqueiam a instalação de pacotes de terceiros.
-A opção `--user` informa o Python que o pacote deve ser instalado
-somente para o seu usuário. Esse tipo de bloqueio ocorre com bastante
-frequência no Windows.
+Alguns sistemas operacionais restringem a instalação de certos pacotes.
+A opção ``--user`` força a instalação do pacote somente para o seu usuário.
+Em geral, aplicações que são instaladas dentro do diretório de usuário requerem
+um nível menor de permissionamento. Muitas vezes, erros de falta de permissão são
+solucionados, quando você realiza a instalação de aplicações a nível de usuário, ao invés de global.
+Esse tipo de bloqueio ocorre com bastante frequência no Windows, especialmente em
+ambientes corporativos.
 
-Após a instalação do `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_,
-execute o seguinte comando:
+Com o `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_ instalado,
+basta executar o seguinte comando:
 
 .. code-block:: console
 
    $ cookiecutter gh:ingwersen-erik/cookiepy
 
 
-Exemplo do `cookiepy` em ação
------------------------------
+``cookiepy`` em ação
+--------------------
 
 .. raw:: html
 
@@ -105,30 +105,29 @@ Exemplo do `cookiepy` em ação
 Funcionalidades
 ===============
 
-Este template possui as seguintes funcionalidades, que são automaticamente inclusas:
+O ``cookiepy`` possui as seguintes funcionalidades, que são automaticamente configuradas:
 
 .. features-begin
 
-- Gerenciamento e empacotamento de pacotes usando Poetry_
-- Automatização de testes usando Nox_
-- Avaliação de qualidade de código durante a etapa de pre-commit_, usando Flake8_
-- Integração contínua através do uso de `GitHub Actions`_
-- Documentação de código usando `Sphinx`_, MyST_, e `Read the Docs`_
-- Geração automatizada de resumo das alterações e novas implementações da release com `Release Drafter`_
-- Atualização automatizada de dependências com Dependabot_
+- Gerenciamento e empacotamento de pacotes, usando Poetry_
+- Automação de testes unitários, usando Nox_
+- Avaliação de qualidade do seu código durante o commit_, usando Flake8_
+- Serviços de CI/CD, com ações pré-configuradas, usando `GitHub Actions`_
+- Automação do processo de geração de documentação do seu código-fonte usando `Sphinx`_, MyST_, e `Read the Docs`_
+- Criação automática de change-logs, usando `Release Drafter`_
+- Atualização automática de dependências com Dependabot_
 - Formatação do código usando `Black`_ e Prettier_
-- Ordenação dos imports do pacote com isort_
-- Framework de testes unitários pytest_
-- Geração de relatórios de coverage com Codecov_
-- Análise estática de código com mypy_
-- Type-checking durante a execução com Typeguard_
-- Atualização automatizada de sintaxe com pyupgrade_
-- Análise de segurança com Bandit_ e Safety_
-- Verificação dos exemplos da documentação com xdoctest_
+- Ordenação e validação de imports dos módulos do seu código, com o isort_
+- Relatório de cobertura de código (coverage), usando Codecov_
+- Análise estática e type-hints com mypy_
+- Análise dinâmica de type-hints, com Typeguard_
+- Mudanças de sintaxe, de acordo com a versão do Python configurada pelo usuário, usando pyupgrade_
+- Análise estática de segurança com Bandit_ e Safety_
+- Validação de exemplos de código escritos na documentação com xdoctest_
 - Gerenciamento de labels de repositório com `GitHub Labeler`_
 
 
-**Versões Python suportadas:** Python 3.7, 3.8, 3.9, e 3.10.
+**Versões do Python suportadas:** Python 3.7, 3.8, 3.9, e 3.10.
 
 .. features-end
 
@@ -170,9 +169,16 @@ Este template possui as seguintes funcionalidades, que são automaticamente incl
 .. references-end
 
 
-Estrutura do repositório
-========================
+----
 
+Informações Adicionais
+======================
+
+
+Estrutura do repositório
+------------------------
+
+O ``cookiepy`` possui a seguinte estrutura de pastas:
 
 .. code-block:: text
 
@@ -192,9 +198,11 @@ Estrutura do repositório
     └── {{cookiecutter.project_name}}   <- Template do pacote que será criado.
 
 
-TO-DO
-=====
+TO-DO :construction: 
+--------------------
 
-- [ ] Traduzir o template para português. A minha intenção inicial era criar o cookiecutter em inglês, por uma facilidade minha em escrever em inglês e também porque a maioria dos projetos requrem código escrito em inglês.
-- [ ] Melhorar tutoriais de como usar.
-- [ ] Criar tutoriais, explicando a functionalidade de cada ferramenta.
+- [ ] Traduzir o template para português :brazil:.
+  Inicialmente, a minha ideia era criar o cookiecutter em inglês,
+  já que a maioria das empresas preferem que o código seja escrito em inglês.
+- [ ] Melhorar os tutoriais de como instalar/usar o ``cookiepy``. :basecamp:
+- [ ] Adicionar tutoriais, com melhores práticas, dicas e casos-de-uso da ferramenta. :bulb:
