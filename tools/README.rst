@@ -37,28 +37,28 @@ Ferramentas extras para o Acelerador de Projetos EY DDA.
 Ferramentas
 -----------
 
-- `dependencies-table.py <./dependencies-table.py>`_: Gerador de tabela de dependências.
-- `prepare-github-release.py <./prepare-github-release.py>`_: Prepara o release para ser publicado no GitHub.
-- `publish-github-release.py <./publish-github-release.py>`_: Publica o release para o repositório do projeto no GitHub.
+- `dependencies_table.py <./dependencies_table.py>`_: Gera tabela de dependências.
+- `prepare_github_release.py <./prepare_github_release.py>`_: Prepara o release para ser publicado no GitHub.
+- `publish_github_release.py <./publish_github_release.py>`_: Publica o release para o repositório do projeto no GitHub.
 
 
 `dependencies-table.py`
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Para usar a ferramenta, basta executar o comando abaixo:
 
 .. code-block:: console
 
-    $ python tools/dependencies-table.py
+    $ python tools/dependencies_table.py
 
 Ou, se quiser salvar o output em um arquivo, basta executar o comando abaixo:
 
 .. code-block:: console
 
-    $ python tools/dependencies-table.py --save True
+    $ python tools/dependencies_table.py --save True
 
-O comando acima irá salvar a tabela como um arquivo no formato ".rst" dentro da
-pasta `cookiepy <../>`_, com o nome `dependencies_YYYY-MM-DD.rst`.
+O comando acima salva a tabela como um arquivo no formato `".rst"` dentro da
+pasta `cookiepy <../>`_, como `dependencies_YYYY-MM-DD.rst`.
 
 **Exemplo de output:**
 

@@ -7,9 +7,21 @@ authors = ["ingwersen-erik <erik.ingwersen@br.ey.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 
+click = { version = '8.1.3', optional = false }
+python-dotenv = { version = '0.21.0', optional = false }
+poetry = { version = '^1.1.12', optional = false }
+github3-py = { version = "^3.2.0", optional = false }
+tomli = "^2.0.1"
+
+
 [tool.poetry.dev-dependencies]
 
 
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.0.1"
+tag_format = "$version"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

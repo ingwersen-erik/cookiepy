@@ -3,6 +3,8 @@ import sys
 import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
+import importlib
+
 try:
     import sphinx.ext.imgmath  # noqa
 except ImportError:
@@ -25,8 +27,7 @@ package_dir = package_dir.joinpath('src')
 sys.path.insert(0, str(package_dir))
 
 package_name = "{{cookiecutter.package_name}}"
-exec('import {} as my_package'.format(package_name))
-
+my_package = importlib.import_module(package_name)
 
 version = getattr(my_package, '__version__')  # noqa
 numpydoc_xref_param_type = True
@@ -34,7 +35,7 @@ numpydoc_xref_ignore = {'optional', 'type_without_description', 'BadException'}
 
 project = "{{cookiecutter.friendly_name}}"
 author = "{{cookiecutter.author}}"
-copyright = "{{cookiecutter.copyright_year}}, {{cookiecutter.author}}"
+project_copyright = "{{cookiecutter.copyright_year}}, {{cookiecutter.author}}"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -66,7 +67,7 @@ autodoc_typehints = "description"
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
+# a list of built-in themes.
 html_theme = "furo"
 # html_theme = "pydata_sphinx_theme"
 html_theme_options = {
@@ -77,9 +78,7 @@ html_theme_options = {
     "dark_logo": "EY_logo_1.gif",
 }
 
-html_sidebars = {
-    "**": [],
-}
+html_sidebars = {"**": []}
 
 # Napoleon settings
 napoleon_google_docstring = False
@@ -98,9 +97,7 @@ napoleon_type_aliases = None
 napoleon_attr_annotations = True
 
 source_suffix = {
-    '.rst': 'restructuredtext',
-    '.txt': 'restructuredtext',
-    '.md': 'markdown',
+    '.rst': 'restructuredtext', '.txt': 'restructuredtext', '.md': 'markdown'
 }
 
 
