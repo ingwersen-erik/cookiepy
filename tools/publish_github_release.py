@@ -1,3 +1,4 @@
+"""Script allows automatic publish of new project releases on GitHub."""
 import datetime
 import sys
 from typing import Optional
@@ -6,14 +7,18 @@ from urllib.error import HTTPError
 from prepare_github_release import click, github3
 
 
-def publish_release(*, owner: str, repository_name: str, token: str, tag: str) -> None:
+def publish_release(*, owner: str, repository_name: str, token: str,
+                    tag: str) -> None:
+    """Publish a release on GitHub."""
     github = github3.login(token=token)
     repository = github.repository(owner, repository_name)
     try:
-        [pull_request] = list(repository.pull_requests(head=f"{owner}:release-{tag}"))
+        [pull_request] = list(
+            repository.pull_requests(head=f"{owner}:release-{tag}"))
     except ValueError as error:
         raise RuntimeError(
-            f'There should be exactly one pull request for {owner}:release-{tag}'
+            f'There should be exactly one pull request for {owner}:release-'
+            f'{tag}'
         ) from error
     pull_request = repository.pull_request(pull_request.number)
 
@@ -26,9 +31,11 @@ def publish_release(*, owner: str, repository_name: str, token: str, tag: str) -
         ) from error
 
     try:
-        [release] = [release for release in repository.releases() if release.draft]
+        [release] = [release for release in repository.releases() if
+                     release.draft]
     except ValueError as error:
-        raise RuntimeError('There should be exactly one draft release.') from error
+        raise RuntimeError(
+            'There should be exactly one draft release.') from error
 
     if commit.status().state != 'success':
         raise RuntimeError(f'checks for #{pull_request.number} have failed')
@@ -37,7 +44,7 @@ def publish_release(*, owner: str, repository_name: str, token: str, tag: str) -
         raise RuntimeError(f"#{pull_request.number} has been merged already")
 
     if not pull_request.mergeable:
-        raise RuntimeError(f'#{pull_request.number} is not mergeable')
+        raise RuntimeError(f'#{pull_request.number} is not merge-able')
 
     title = f'{pull_request.title} (#{pull_request.number})'
 
@@ -76,7 +83,8 @@ def publish_release(*, owner: str, repository_name: str, token: str, tag: str) -
               help='GitHub API token')
 @click.argument("tag", required=False)
 def main(owner: str, repository: str, token: str, tag: Optional[str]) -> None:
-    """Publish a GitHub release for this project.
+    """
+    Publish a GitHub release for this project.
 
     If no release tag is specified, function uses 'YYYY.MM.DD' with the current
     date as tag. There must be a single release draft, and a pull request for a
@@ -95,4 +103,4 @@ def main(owner: str, repository: str, token: str, tag: Optional[str]) -> None:
 
 
 if __name__ == '__main__':
-    main()
+    main()  # pylint: disable=no-value-for-parameter

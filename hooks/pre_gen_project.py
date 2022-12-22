@@ -18,11 +18,11 @@ PROJECT_NAME = '{{ cookiecutter.project_name }}'
 if not re.match(MODULE_REGEX, PACKAGE_NAME):
     print(f'ERROR: \"{PACKAGE_NAME}\" is not a valid Python module name!')
     print('Please try again using a name like \"my_awesome_project\".')
-    max_tries = 3
+    MAX_TRIES = 3
     project_directory = Path.cwd().joinpath(PROJECT_NAME)
     # Search for the project directory. If found, we'll remove it.
-    while max_tries > 0 and not project_directory.is_dir():
-        max_tries -= 1
+    while MAX_TRIES > 0 and not project_directory.is_dir():
+        MAX_TRIES -= 1
         project_directory = Path('..').joinpath(project_directory)
     if project_directory.is_dir():
         print('Removing the project directory: ', project_directory)

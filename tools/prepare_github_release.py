@@ -1,25 +1,27 @@
 """
 Prepare GitHub release.
 """
-from __future__ import annotations, absolute_import
-import sys
+from __future__ import absolute_import, annotations
+
 import datetime
 import subprocess
+import sys
 from pathlib import Path
-from typing import Any, Iterable, List, Optional
+from typing import Any, Iterable, List, Literal, Optional
+from urllib.error import HTTPError
 
 try:
     import click
     import github3  # noqa
 except (ModuleNotFoundError, ImportError) as exc:
-    module_not_found_name = 'github3.py'
-    if 'click' in exc.msg:
-        module_not_found_name = 'click'
+    MODULE_NOT_FOUND_NAME: Literal['github3.py', 'click'] = 'github3.py'
+    if 'click' in str(exc):
+        MODULE_NOT_FOUND_NAME = 'click'
     raise ImportError(
-        f'You need to install {module_not_found_name} to run this script. '
-        f'You can install {module_not_found_name} by executing the '
+        f'You need to install {MODULE_NOT_FOUND_NAME} to run this script. '
+        f'You can install {MODULE_NOT_FOUND_NAME} by executing the '
         'following command:\n\n\t'
-        f'`pip install -U {module_not_found_name}`'
+        f'`pip install -U {MODULE_NOT_FOUND_NAME}`'
     ) from exc
 
 
@@ -70,7 +72,7 @@ def replace_text(path: Path | str, old: str, new: str):
     path.write_text(text, encoding='utf-8')
 
 
-def prepare_release(
+def prepare_release(  # pylint: disable=too-many-arguments, too-many-locals
     *,
     owner: str,
     repository_name: str,
@@ -92,7 +94,7 @@ def prepare_release(
         The name of the GitHub repository.
     token : str
         The GitHub token. You need a token to access a GitHub repo.
-        GitHub doesn't authenticate you with you account password anymore.
+        GitHub doesn't authenticate you with your account password anymore.
     tag : str
         The tag to create a GitHub release for.
         For example, `"v0.1.0"`.
@@ -102,10 +104,15 @@ def prepare_release(
     base : str
         The base branch to push to. For example, `"main"`.
     bump_paths : List[Path]
-        The filepaths of the files to bump.
+        The file paths of the files to bump.
         Bump changes the version number in files that specify the
         version number. Common files that might need bumping include:
-        `README.rst`, `docs/guide.rst`, `docs/index.rst`, and `docs/quickstart.rst`.
+
+        - ``README.rst``
+        - ``docs/guide.rst``
+        - ``docs/index.rst``
+        - ``docs/quickstart.rst``
+
     label_names : List[str]
         The names of the labels to add to the GitHub release.
 
@@ -114,10 +121,10 @@ def prepare_release(
     ValueError
         If the function fails to generate a valid release.
     RuntimeError
-        If you pass an wrong label name.
-        Please note that other errors might occur, and that fot using this function,
-        you need to have a good understanding of the correct values you need to pass
-        to it.
+        If you pass wrong label names.
+        Please note that other errors might occur, and that fot using this
+        function, you need to have a good understanding of the correct values
+        you need to pass to it.
 
     Notes
     -----
@@ -143,7 +150,8 @@ def prepare_release(
     repository = github.repository(owner, repository_name)
 
     try:
-        [release] = [release for release in repository.releases() if release.draft]
+        [release] = [release for release in repository.releases() if
+                     release.draft]
     except ValueError as error:
         raise RuntimeError(
             'There should be exactly one draft release'
@@ -221,7 +229,7 @@ def prepare_release(
     help='Labels for the pull request (may be specified multiple times)',
 )
 @click.argument("tag", required=False)
-def main(
+def main(  # pylint: disable=too-many-arguments
     owner: str,
     repository: str,
     token: str,
@@ -231,7 +239,7 @@ def main(
     labels: Iterable[str],
     tag: Optional[str],
 ) -> None:
-    """Open pull request to release project.
+    """Open pull request to release a project.
 
     If no release tag specified, it uses YYYY.MM.DD, with current date.
     There must be a single draft release. This script pushes a branch
@@ -254,10 +262,10 @@ def main(
             label_names=list(labels),
             tag=tag,
         )
-    except Exception as error:
+    except (HTTPError, ValueError) as error:
         click.secho(f'Error: {error}', fg='red')
         sys.exit(1)
 
 
 if __name__ == '__main__':
-    main()
+    main()  # pylint: disable=no-value-for-parameter

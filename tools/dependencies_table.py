@@ -16,18 +16,16 @@ except ImportError:
     os.system('pip install -U tomli')
     import tomli  # noqa
 
-
 PROJECT = Path('{{cookiecutter.project_name}}')
-max_tries = 1
-
+MAX_TRIES: int = 2
 
 # If you're running from the “tools” directory.
-while not PROJECT.is_dir() and max_tries > 0:
+while not PROJECT.is_dir() and MAX_TRIES > 0:
     PROJECT = Path('..').joinpath(PROJECT)
-    max_tries -= 1
+    MAX_TRIES -= 1
 
 # If the script can't find the project directory.
-if max_tries == 0 and not PROJECT.is_dir():
+if MAX_TRIES == 0 and not PROJECT.is_dir():
     raise FileNotFoundError(f'Could not find project directory: {PROJECT}')
 
 JINJA_PATTERN = re.compile(r'{%.*%}')
@@ -42,6 +40,7 @@ args = args_parser.parse_args()
 
 
 def canonicalize_name(name: str) -> str:
+    """Canonicalize the name of a dependency."""
     # From ``packaging.utils.canonicalize_name`` (PEP 503)
     return CANONICALIZE_PATTERN.sub('-', name).lower()
 
@@ -66,14 +65,15 @@ def get_dependencies(data: Dict[str, Any]) -> set:
 
 
 def get_descriptions(data: Dict[str, Any], dependencies: set) -> Dict[str, str]:
-    """Get the descriptions from the poetry.lock file."""
+    """Get the descriptions from the ``poetry.lock`` file."""
     return {
-        canonicalize_name(package['name']): truncate_description(package['description'])
+        canonicalize_name(package['name']): truncate_description(
+            package['description'])
         for package in data['package'] if package['name'] in dependencies}
 
 
 def read_tomli(path: Path | str, jinja=False) -> dict[str, Any]:
-    """Read the contents of a ".toml", or ".lock" file."""
+    """Read the contents of an ".toml", or ".lock" file."""
     if isinstance(path, str):
         path = Path(path)
     if not path.is_file():
@@ -100,17 +100,18 @@ def main(save: bool = False) -> None:
     --------
     >>> main()
     '''
-    ====================== ====================================================================================
+    ============================================================================
     black_                 The uncompromising code formatter.
     click_                 Composable command line interface toolkit
     coverage__             Code coverage measurement for Python
-    darglint_              A utility for ensuring Google-style docstrings stay up to date with the source code.
-    ====================== ====================================================================================
+    darglint_              A utility for ensuring Google-style docstrings ...
+    ============================================================================
     '''
 
     Notes
     -----
-    If a description to a dependency doesn't exist, function will leave it  blank.
+    If a description of a dependency doesn't exist, function will leave it
+    blank.
     """
     path = Path(f'{PROJECT}{os.path.sep}pyproject.toml')
     data = read_tomli(path, True)
@@ -132,23 +133,24 @@ def main(save: bool = False) -> None:
     separator = LINE_FORMAT.format(
         name='=' * width, width=width, description='=' * width2
     )
-    
-    dependecies_table: str = separator + '\n'
+
+    dependencies_table: str = separator + '\n'
     print(separator)
 
     for name, description in table.items():
-        line = LINE_FORMAT.format(name=name, width=width, description=description)
-        dependecies_table += line + '\n'
+        line = LINE_FORMAT.format(name=name, width=width,
+                                  description=description)
+        dependencies_table += line + '\n'
         print(line)
-    dependecies_table += separator + '\n'
+    dependencies_table += separator + '\n'
     print(separator)
-    
+
     if save:
         now = datetime.datetime.now()
         filename = f'dependencies_{now.strftime("%Y-%m-%d")}.rst'
         path = PROJECT.joinpath('..').joinpath(filename).resolve()
-        path.write_text(dependecies_table)
-        print(f'Saved dependecies table to \"{path}\"')
+        path.write_text(dependencies_table)
+        print(f'Saved dependencies table to \"{path}\"')
 
 
 if __name__ == '__main__':

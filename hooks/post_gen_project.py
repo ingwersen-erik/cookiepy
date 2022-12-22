@@ -3,7 +3,6 @@
 """
 Hooks called after generating the project structure.
 """
-
 from __future__ import annotations, print_function
 
 import contextlib
@@ -12,20 +11,29 @@ import os
 import sys
 from pathlib import Path
 
+if '{{ cookiecutter.use_poetry|lower }}' in {'y', 1, True}:
+    try:
+        import poetry  # noqa
+    except (ModuleNotFoundError, ImportError) as exc:
+        raise ImportError(
+            'Poetry is not installed. Please install Poetry before proceeding.'
+        ) from exc
+
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 COOKIECUTTER_FILE = '.cookiecutter.json'
 
 
-def reindent_cookiecutter_json(cookiecutter_json: str | Path = COOKIECUTTER_FILE) -> None:
+def reindent_cookiecutter_json(
+        cookiecutter_json: str | Path = COOKIECUTTER_FILE) -> None:
     """
     Indent `.cookiecutter.json <./.cookiecutter.json>`_ using two spaces.
 
-    "jsonify" extension uses an indentation width of four spaces.
+    "jsonify" extension uses indentation width of four spaces.
     This indentation width conflicts with the default indentation required by
     Prettier for JSON files. Code executes Prettier as a pre-commit hook in
     continuous integration (CI). Pre-commit hooks define a set of rules and
-    transformations, applied to the project files before the user pushes new commits
-    to the repository.
+    transformations, applied to the project files before the user pushes new
+    commits to the repository.
 
     Parameters
     ----------
@@ -45,12 +53,12 @@ def reindent_cookiecutter_json(cookiecutter_json: str | Path = COOKIECUTTER_FILE
     if not path.is_file():
         raise FileNotFoundError(f"{path} does not exist.")
 
-    with path.open(mode='r', encoding='utf-8') as io:
-        data = json.load(io)
+    with path.open(mode='r', encoding='utf-8') as file:
+        data = json.load(file)
 
-    with path.open(mode='w', encoding='utf-8') as io:
-        json.dump(data, io, sort_keys=True, indent=2)
-        io.write('\n')
+    with path.open(mode='w', encoding='utf-8') as file:
+        json.dump(data, file, sort_keys=True, indent=2)
+        file.write('\n')
 
 
 def remove_file(filepath: str | Path) -> None:
@@ -103,12 +111,12 @@ def create_dotenv(project_filepath: str | Path = PROJECT_DIRECTORY) -> None:
 
         You can add extra values to store in the `.env` file by adding
         them to the `env_configs` dictionary defined inside the `create_dotenv`
-        function. When defining variables to store paths information, try to
+        function. When defining variables to store path information, try to
         name the variable, ending with the "_DIRECTORY" suffix. This function
         uses this suffix to determine which values represent directories, and
         creates them if they don't exist. Another way to do this is to
         change the `if 'DIRECTORY' in config_name:...` condition, replacing
-        the word “DIRECTORY” to the desired one. If you use the later option,
+        the word “DIRECTORY” to the desired one. If you use the latter option,
         don't forget to change the suffix used in the `env_configs` keys
         names.
     """
@@ -126,17 +134,18 @@ def create_dotenv(project_filepath: str | Path = PROJECT_DIRECTORY) -> None:
         ),
         'LOGS_DIRECTORY': str(project_filepath.joinpath('logs')),
         'DATA_DIRECTORY': str(project_filepath.joinpath('data')),
-        'DATA_RAW_DIRECTORY': str(project_filepath.joinpath(f'data{os.path.sep}raw')),
-        'DATA_OUTPUT_DIRECTORY': str(project_filepath.joinpath(f'data{os.path.sep}outputs')),
+        'DATA_RAW_DIRECTORY': str(
+            project_filepath.joinpath(f'data{os.path.sep}raw')),
+        'DATA_OUTPUT_DIRECTORY': str(
+            project_filepath.joinpath(f'data{os.path.sep}outputs')),
         'OUTPUTS_DIRECTORY': str(project_filepath.joinpath('outputs')),
     }
-    with open(str(env_filepath), 'w', encoding='utf-8') as fp:
+    with open(str(env_filepath), 'w', encoding='utf-8') as file:
         for config_name, config_value in env_configs.items():
             if 'DIRECTORY' in config_name:
                 Path(config_value).mkdir(parents=True, exist_ok=True)
-            fp.write(f'{config_name}="{config_value}"\n')
+            file.write(f'{config_name}="{config_value}"\n')
             os.environ.setdefault(config_name, config_value)
-        fp.close()
 
 
 if __name__ == "__main__":
@@ -153,10 +162,3 @@ if __name__ == "__main__":
 
     create_dotenv()
     sys.path.insert(0, os.environ.get('PROJECT_DIRECTORY'))
-    if '{{ cookiecutter.use_poetry|lower }}' in {'y', 1, True}:
-        try:
-            import poetry  # noqa
-        except ImportError:
-            os.system('pip install -U poetry')
-        finally:
-            os.system('poetry update')
