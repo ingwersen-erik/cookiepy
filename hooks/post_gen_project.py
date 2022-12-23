@@ -11,6 +11,7 @@ import os
 import sys
 from pathlib import Path
 
+
 if '{{ cookiecutter.use_poetry|lower }}' in {'y', 1, True}:
     try:
         import poetry  # noqa

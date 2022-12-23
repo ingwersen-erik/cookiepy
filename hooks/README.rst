@@ -3,7 +3,6 @@ Cookiepy Hooks
 
 .. Links:
 
-
 .. Project authors:
 .. _Erik Ingwersen: https://github.com/ingwersen-erik
 
@@ -32,6 +31,11 @@ Cookiepy Hooks
 Overview
 --------
 
+Os scripts `pre_gen_project.py` e `post_gen_project.py` são hooks utilizados pelo cookiecutter
+para criação do repositório. Estes scripts definem o fluxo de geração de novos repositórios de acordo com os valores
+que você definiu durante a execução do comando `cookiecutter cookiepy.`.
+
+Eles são responsáveis por:
 Hooks que são executados pré e pós execução do comando `cookiecutter cookiepy`.
 
 Você pode alterar esses arquivos Python para customizar o processo que o `cookiecutter cookiepy` executa

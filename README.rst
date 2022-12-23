@@ -87,15 +87,15 @@ __ https://cookiepy.readthedocs.io/
 Quickstart
 ----------
 
-Para usar o ``cookiepy``, você precisa primeiramente instalar o pacote `cookiecutter
-<https://cookiecutter.readthedocs.io/en/latest/>`_ no seu ambiente de desenvolvimento:
+O ``cookiepy`` requer instação prévia do pacote `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_.
+Execute o seguinte comando para instalar o ``cookiecutter``:
 
 .. code-block:: console
 
     $ pip install cookiecutter
 
 
-**:bulb: Observação:** caso você encontre um erro ao executar o comando acima, tente executar novamente,
+**:bulb: Observação:** caso você não consiga executar o comando acima, tente executar novamente,
 incluindo a opçao ``-U``, ou ``--user``:
 
 .. code-block:: console
@@ -120,8 +120,10 @@ basta executar o seguinte comando:
    $ cookiecutter gh:ingwersen-erik/cookiepy
 
 
-``cookiepy`` em ação
---------------------
+Exemplo de Uso do ``cookiepy``
+------------------------------
+
+O vídeo abaixo mostra o processo de criação de um novo projeto, utilizando o ``cookiepy``:
 
 .. raw:: html
 
@@ -132,7 +134,7 @@ basta executar o seguinte comando:
 Funcionalidades
 ===============
 
-O ``cookiepy`` possui as seguintes funcionalidades, que são automaticamente configuradas:
+O pacote gerado pelo ``cookiepy`` possui as seguintes funcionalidades pré-configuradas:
 
 .. features-begin
 
@@ -154,7 +156,7 @@ O ``cookiepy`` possui as seguintes funcionalidades, que são automaticamente con
 - Gerenciamento de labels de repositório com `GitHub Labeler`_
 
 
-**Versões do Python suportadas:** Python 3.7, 3.8, 3.9, e 3.10.
+**Esta ferramenta foi testada nas seguintes versões do Python:** Python 3.7, 3.8, 3.9, e 3.10.
 
 .. features-end
 
@@ -214,14 +216,18 @@ O ``cookiepy`` possui a seguinte estrutura de pastas:
     ├── CONTRIBUTING.rst                <- Guia de contribuição. Está em inglês.
     ├── LICENSE.rst                     <- Licença do projeto (por enquanto está como MIT)
     ├── README.rst                      <- Este arquivo que você está lendo.
-    ├── cookiecutter.json               <- Instruções para a geração do template.
-    ├── docs                            <- Diretório com arquivos da documentação.
-    ├── hooks                           <- Diretório contêm os hooks pré e pós execução do comando cookiecutter.
-    ├── noxfile.py                      <- Arquivo nox
-    ├── poetry.lock                     <- Dependências do projeto.
-    ├── pycharm.sh                      <- Arquivo para inicializar o PyCharm.
-    ├── pyproject.toml                  <- Configurações do projeto.
-    ├── tools                           <- ferramentas extras para o desenvolvimento do cookiepy.
+    ├── cookiecutter.json               <- Arquivo com os parâmetros utilizado pelo cookiepy para gerar novos repositórios
+    ├── docs                            <- Diretório com a documentação da ferramenta.
+    ├── noxfile.py                      <- Arquivo nox com as configurações de testes unitários.
+    ├── pycharm.sh                      <- Comando Mac/Linux para inicialização do PyCharm (se instalado).
+    ├── pyproject.toml                  <- Arquivos com as configurações e dependencias da ferramenta.
+    ├── tools                           <- scripts para automação CI/CD.
+    │   ├── dependencies_table.py       <- Script analisa os scripts Python do projeto e gera uma tabela de dependências.
+    │   ├── prepare_github_release.py   <- Script de preparação de novas releases.
+    │   └── publish_github_release.py   <- Script de publicação de releases em repositório do GitHub.
+    ├── hooks                           <- Diretório com os arquivos utilizados para criação do repositório.
+    │   ├── post_gen_project.py         <- Script executado após a geração do repositório.
+    │   └── pre_gen_project.py          <- Script executado antes da geração do repositório.
     └── {{cookiecutter.project_name}}   <- Template do pacote que será criado.
 
 

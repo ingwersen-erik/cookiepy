@@ -1,5 +1,22 @@
+default_language_version:
+  python: python3.8
+
+default_stages: [ commit, push ]
+
 repos:
-- hooks:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.1.0
+  hooks:
+    - id: check-yaml
+- repo: local
+  hooks:
+    - id: black
+      name: black
+      entry: poetry run black --config pyproject.toml
+      types: [ python ]
+      language: system
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: master
+  hooks:
   - id: commitizen
-  repo: https://github.com/commitizen-tools/commitizen
-  rev: v2.38.0
+    stages: [commit-msg]
