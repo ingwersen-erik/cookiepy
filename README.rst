@@ -68,17 +68,17 @@
 Descrição
 =========
 
-Template para a criação e configuração de novos repositórios Python para aplicações voltadas a
-ciência de dados.
+Cookiecutter para automação da criação de repositório Python para projetos.
 
-**:warning: Importante:** Esta ferramenta assume que você tenha um conhecimento prévio de como criar pacotes em Python e, como usar ferrametas de 
+**:warning: Importante:** Esta ferramenta assume que você tenha um conhecimento
+prévio de como criar pacotes em Python e, como usar ferramentas de
 versionamento de código (GitHub, Bitbucket, Gitlab, etc.).
 
 
 Documentação do Projeto
 =======================
 
-✨📚✨ `Link para documnetação`__
+✨📚✨ `Link para documentação`__
 
 __ https://cookiepy.readthedocs.io/
 
@@ -87,7 +87,7 @@ __ https://cookiepy.readthedocs.io/
 Quickstart
 ----------
 
-O ``cookiepy`` requer instação prévia do pacote `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_.
+O ``cookiepy`` requer instalação prévia do pacote `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_.
 Execute o seguinte comando para instalar o ``cookiecutter``:
 
 .. code-block:: console
@@ -95,7 +95,8 @@ Execute o seguinte comando para instalar o ``cookiecutter``:
     $ pip install cookiecutter
 
 
-**:bulb: Observação:** caso você não consiga executar o comando acima, tente executar novamente,
+**:bulb: Observação:** caso você não consiga executar o comando acima,
+tente executar novamente,
 incluindo a opçao ``-U``, ou ``--user``:
 
 .. code-block:: console
@@ -107,10 +108,10 @@ incluindo a opçao ``-U``, ou ``--user``:
 Alguns sistemas operacionais restringem a instalação de certos pacotes.
 A opção ``--user`` força a instalação do pacote somente para o seu usuário.
 Em geral, aplicações que são instaladas dentro do diretório de usuário requerem
-um nível menor de permissionamento. Muitas vezes, erros de falta de permissão são
-solucionados, quando você realiza a instalação de aplicações a nível de usuário, ao invés de global.
-Esse tipo de bloqueio ocorre com bastante frequência no Windows, especialmente em
-ambientes corporativos.
+um nível menor de permissões. Muitas vezes, erros de falta de permissão são
+solucionados, quando você realiza a instalação de aplicações a nível de usuário,
+ao invés de global. Esse tipo de bloqueio ocorre com bastante frequência no Windows,
+especialmente em ambientes corporativos.
 
 Com o `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_ instalado,
 basta executar o seguinte comando:

@@ -1,31 +1,49 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Hooks called before generating the project structure.
+Script defines steps needed to be executed prior to the repository creation.
 
-This hook checks whether the informed project name is a valid Python package name.
+Hook checks whether the user set a valid project and Python package names
+when executing the command:
+
+.. code-block:: console
+
+    $ cookiecutter gh:ingwersen-erik/cookiepy
+
+Additionally, it also checks whether a project of the same name already exists
+and if so, deletes the preexisting project.
 """
+from __future__ import annotations
+
+import os
 import re
 import sys
-from pathlib import Path
+
+MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]+$"
+PACKAGE_NAME = "{{ cookiecutter.package_name }}"
+PROJECT_NAME = "{{ cookiecutter.project_name }}"
 
 
-MODULE_REGEX = r'^[_a-zA-Z][_a-zA-Z0-9]+$'
-PACKAGE_NAME = '{{ cookiecutter.package_name }}'
-PROJECT_NAME = '{{ cookiecutter.project_name }}'
-
-
-if not re.match(MODULE_REGEX, PACKAGE_NAME):
-    print(f'ERROR: \"{PACKAGE_NAME}\" is not a valid Python module name!')
-    print('Please try again using a name like \"my_awesome_project\".')
-    MAX_TRIES = 3
-    project_directory = Path.cwd().joinpath(PROJECT_NAME)
-    # Search for the project directory. If found, we'll remove it.
-    while MAX_TRIES > 0 and not project_directory.is_dir():
-        MAX_TRIES -= 1
-        project_directory = Path('..').joinpath(project_directory)
-    if project_directory.is_dir():
-        print('Removing the project directory: ', project_directory)
-        project_directory.unlink(missing_ok=True)
-    # Exits with status 1 to show failure
+def main_pregen():
+    """
+    Execute the steps that need to be executed prior to project generation.
+    """
+    os.environ.setdefault("PROJECT_NAME", PROJECT_NAME)
+    os.environ.setdefault("PACKAGE_NAME", PACKAGE_NAME)
+    os.environ.setdefault("MODULE_REGEX", MODULE_REGEX)
+    if re.match(MODULE_REGEX, PACKAGE_NAME):
+        return
+    print(f'ERROR: "{PACKAGE_NAME}" is not a valid Python module name!')
+    print('Please try again using a name like "my_awesome_project".')
     sys.exit(1)
+
+
+if __name__ == "__main__":
+    try:
+        main_pregen()
+    except Exception as exc:  # pylint: disable=broad-except
+        print(
+            "Failed to execute the pre package generation process.\n Error "
+            f"message: {exc}"
+        )
+        sys.exit(1)
