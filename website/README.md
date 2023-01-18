@@ -17,42 +17,34 @@ To build the documentation website locally, you'll have to install either
 
 First install Homebrew if you don't already have it installed:
 
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 Then execute the following command:
 
-```
-$ brew install yarn
-```
-
+    $ brew install yarn
 
 **For Linux Users:**
 
 There are multiple ways to install `yarn` on Linux machines. One of these methods
 is via `apt-get install` (requires root permissions):
 
-```
-$ sudo apt install yarn
-```
+    $ sudo apt install yarn
 
 Other methods can be found here: [How to install yarn](https://itslinuxfoss.com/yarn-command-not-found/#:~:text=The%20%E2%80%9Cyarn%20command%20not%20found%E2%80%9D%20error%20is%20invoked%20when%20the,sudo%20apt%20install%20cmdtest%E2%80%9D%20commands.)
 
 **For Windows Users:** follow the instructions outlined [here](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
 
-----
+***
 
 ### Installation
 
 The following command installs the necessary dependencies to build the project
 documentation:
 
-```
-$ yarn
-```
+    $ yarn
 
 Example command output:
+
 ```
 ❯ yarn
 yarn install v1.22.19
@@ -69,16 +61,13 @@ warning "@docusaurus/preset-classic > @docusaurus/theme-search-algolia > @docsea
 
 ```
 
-
 ### Local Development
 
 Execute the following command to start the web server locally:
 
-```
-$ yarn start
-```
+    $ yarn start
 
-**Default local URL:** [http://localhost:3000/](http://localhost:3000/)
+**Default local URL:** <http://localhost:3000/>
 
 When you execute the command, it opens a browser window with the landing page
 for the documentation website. Most changes you make to the
@@ -88,9 +77,7 @@ live updates though.
 
 ### Build
 
-```
-$ yarn build
-```
+    $ yarn build
 
 This generates a static content into the `build` directory.
 You can serve using any static contents hosting service.
@@ -99,14 +86,10 @@ You can serve using any static contents hosting service.
 
 Using SSH:
 
-```
-$ USE_SSH=true yarn deploy
-```
+    $ USE_SSH=true yarn deploy
 
 Not using SSH:
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+    $ GIT_USER=<Your GitHub username> yarn deploy
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

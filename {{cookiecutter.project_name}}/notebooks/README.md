@@ -1,11 +1,9 @@
-Notebooks
-=========
+# Notebooks
 
 Add to this folder all jupyter notebook files. These include examples, tests,
 or tutorials on how to use some feature of your package.
 
-Folder Contents
----------------
+## Folder Contents
 
 > Include a brief overview of the notebooks in this folder.
 > This helps others on finding the notebook with the specific information
@@ -15,13 +13,11 @@ Folder Contents
 
 |    **Notebook**   | **Description**                                           |  **Author** |
 |:-----------------:|:----------------------------------------------------------|:-----------:|
-| model_train.ipynb | Train a new model for the USE-CASE.                       | James Smith |
-|  model_test.ipynb | How to use a trained model to make inference on new data. |   John Doe  |
+| model\_train.ipynb | Train a new model for the USE-CASE.                       | James Smith |
+|  model\_test.ipynb | How to use a trained model to make inference on new data. |   John Doe  |
 |        ...        | ...                                                       |     ...     |
 
-
-Naming convention
------------------
+## Naming convention
 
 Use a name convention for the notebooks.
 When defining your strategy, you should assess your use-case, and

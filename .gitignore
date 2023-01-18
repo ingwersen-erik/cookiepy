@@ -15,3 +15,4 @@
 # .env files
 .env
 /.fleet/
+/node_modules/

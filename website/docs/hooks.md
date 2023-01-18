@@ -1,8 +1,9 @@
----
-sidebar_position: 1
+***
+
+sidebar\_position: 1
 title: Cookiepy Hooks
-authors: [ingwersen]
----
+authors: \[ingwersen]
+---------------------
 
 ## Overview
 

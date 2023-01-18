@@ -1,17 +1,17 @@
 # Contributor Guide
 
-This section specifies the **contributing guidelines** for _{{cookiecutter.friendly_name}}_ project.
+This section specifies the **contributing guidelines** for *{{cookiecutter.friendly\_name}}* project.
 
-This project is {%- if cookiecutter.license != 'Proprietary' %}open-source under the [{{cookiecutter.license.replace("-", " ")}} license] and we welcome any contributions in the form of bug reports,
-feature requests, and pull requests.{ % - else %}a proprietary project under the [{{cookiecutter.license.replace("-", " ")}} license], and only allowed developers have the legal rights to make changes
+This project is {%- if cookiecutter.license != 'Proprietary' %}open-source under the \[{{cookiecutter.license.replace("-", " ")}} license] and we welcome any contributions in the form of bug reports,
+feature requests, and pull requests.{ % - else %}a proprietary project under the \[{{cookiecutter.license.replace("-", " ")}} license], and only allowed developers have the legal rights to make changes
 to the source-code.{%- endif %}
 
 Here is a list of important resources for contributors:
 
-- [Source Code]
-- [Documentation]
-- [Issue Tracker]
-- [Code of Conduct]
+*   [Source Code]
+*   [Documentation]
+*   [Issue Tracker]
+*   [Code of Conduct]
 
 [{{cookiecutter.license.replace("-", " ").lower()}} license]: https://opensource.org/licenses/{{cookiecutter.license}}
 
@@ -27,11 +27,11 @@ Report bugs on the [Issue Tracker].
 
 To make it easier to other teammates to reproduce and identify the root-cause of the bug, try to answer the following questions, when filing an issue whenever applicable:
 
-- Which operating system and Python version are you using?
-- Which version of this project are you using?
-- What did you do?
-- What did you expect to see?
-- What did you see instead?
+*   Which operating system and Python version are you using?
+*   Which version of this project are you using?
+*   What did you do?
+*   What did you expect to see?
+*   What did you see instead?
 
 The best way to get your bug fixed is to provide a test case, and/or steps to reproduce the issue.
 
@@ -46,7 +46,6 @@ $ python --version
 ```
 
 **To identify the system information:**
-
 
 ````{tab} Windows
 ```console
@@ -137,9 +136,9 @@ commits.
 
 You need Python 3.7+ and the following tools:
 
-- [Poetry]
-- [Nox]
-- [nox-poetry]
+*   [Poetry]
+*   [Nox]
+*   [nox-poetry]
 
 ### Install Poetry
 
@@ -147,7 +146,7 @@ If you don't have Poetry installed, please refer to the following
 [guide](https://python-poetry.org/docs/#installation), for instructions on how
 to install it.
 
-### Install _{{cookiecutter.friendly_name}}_
+### Install *{{cookiecutter.friendly\_name}}*
 
 Install the package with development requirements:
 
@@ -209,7 +208,7 @@ You can also run a specific [Nox](https://nox.thea.codes/) session. For example,
 $ nox --session=tests
 ```
 
-Unit tests are located in the _tests_ directory, and are written using the [pytest] testing framework.
+Unit tests are located in the *tests* directory, and are written using the [pytest] testing framework.
 
 [pytest]: https://pytest.readthedocs.io/
 
@@ -219,9 +218,9 @@ Open a [pull request] to submit changes to this project.
 
 Your pull request needs to meet the following guidelines for acceptance:
 
-- The [Nox](https://nox.thea.codes/) test suite must pass **without errors and warnings.**
-- Include unit tests. This project maintains 100% code coverage.
-- If your changes add functionality, update the documentation accordingly.
+*   The [Nox](https://nox.thea.codes/) test suite must pass **without errors and warnings.**
+*   Include unit tests. This project maintains 100% code coverage.
+*   If your changes add functionality, update the documentation accordingly.
 
 Feel free to submit early, though—we can always iterate on this.
 
