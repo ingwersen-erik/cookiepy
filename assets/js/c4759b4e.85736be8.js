@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[630],{7406:e=>{e.exports=JSON.parse('[{"label":"blog","permalink":"/cookiepy/blog/tags/blog","count":1}]')}}]);
