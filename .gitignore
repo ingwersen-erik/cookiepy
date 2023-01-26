@@ -16,3 +16,4 @@
 .env
 /.fleet/
 /node_modules/
+*.pyc
