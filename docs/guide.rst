@@ -238,8 +238,7 @@ Use the ``--checkout`` option with the `current stable release <2021.11.26_>`__:
 
 .. code:: console
 
-   $ cookiecutter gh:cjolowicz/cookiecutter-hypermodern-python \
-     --checkout="2021.11.26"
+   $ cookiecutter gh:cjolowicz/cookiecutter-hypermodern-python --checkout="2021.11.26"
 
 Cookiecutter downloads the template,
 and asks you a series of questions about project variables,

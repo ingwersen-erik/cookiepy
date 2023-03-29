@@ -13,7 +13,7 @@ try:
     from nox_poetry import Session
     from nox_poetry import session
 except ImportError:
-    message = f"""\
+    message = f"""
     Nox failed to import the 'nox-poetry' package.
 
     Please install it using the following command:

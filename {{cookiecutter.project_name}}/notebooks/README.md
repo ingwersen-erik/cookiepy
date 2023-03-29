@@ -11,10 +11,10 @@ or tutorials on how to use some feature of your package.
 > functionality simply because they weren't aware someone already did that.
 > Exposing your code is as important as developing it.
 
-|    **Notebook**   | **Description**                                           |  **Author** |
+|   **Notebook**    | **Description**                                           |  **Author** |
 |:-----------------:|:----------------------------------------------------------|:-----------:|
-| model\_train.ipynb | Train a new model for the USE-CASE.                       | James Smith |
-|  model\_test.ipynb | How to use a trained model to make inference on new data. |   John Doe  |
+| model_train.ipynb | Train a new model for the USE-CASE.                       | James Smith |
+| model_test.ipynb  | How to use a trained model to make inference on new data. |   John Doe  |
 |        ...        | ...                                                       |     ...     |
 
 ## Naming convention

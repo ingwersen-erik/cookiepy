@@ -1,8 +1,8 @@
 ***
 
-sidebar\_position: 1
+sidebar_position: 1
 title: Getting Started
-authors: \[ingwersen]
+authors: [ingwersen]
 ---------------------
 
 ![](../../docs/_static/EY_logo_5.gif)
@@ -184,9 +184,9 @@ deverão ser os valores desta chave.
 
 ## TODO :construction:
 
-*   \[ ] Traduzir o modelo para português.
+*   [ ] Traduzir o modelo para português.
     Inicialmente, a minha ideia era criar o cookiecutter em inglês,
     já que a maioria das empresas prefere que o código seja escrito em inglês.
-*   \[ ] Melhorar os tutoriais de como instalar/usar o `cookiepy`.
-*   \[ ] Adicionar tutoriais, com melhores práticas, dicas e casos-de-uso da ferramenta.
-*   \[ ] Incluir módulos com funções helpers que podem ser úteis para o usuário.
+*   [ ] Melhorar os tutoriais de como instalar/usar o `cookiepy`.
+*   [ ] Adicionar tutoriais, com melhores práticas, dicas e casos-de-uso da ferramenta.
+*   [ ] Incluir módulos com funções helpers que podem ser úteis para o usuário.

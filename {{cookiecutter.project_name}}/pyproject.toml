@@ -121,7 +121,7 @@ show_error_context = true
 line-length = 80
 skip-string-normalization = true
 target-version = ['py37', 'py38', 'py39']
-include = '\.pyi?$'
+include = '.pyi?$'
 exclude = '''
 /(
     \.eggs

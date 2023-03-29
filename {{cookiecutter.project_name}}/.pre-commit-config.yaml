@@ -1,4 +1,4 @@
-exclude: '^(\.tox|ci/templates|\.bumpversion\.cfg)(/|$)'
+exclude: '^(.tox|ci/templates|.bumpversion.cfg)(/|$)'
 repos:
   - repo: local
     hooks:
