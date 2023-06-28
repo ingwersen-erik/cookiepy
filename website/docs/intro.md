@@ -1,6 +1,6 @@
 ***
 
-sidebar\_position: 1
+sidebar_position: 1
 title: Getting Started
 authors: \[ingwersen]
 ---------------------
