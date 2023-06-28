@@ -13,7 +13,7 @@
    :target: https://badgen.net/badge/status/alpha/d8624d
    :alt: Project Status
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/cookiepy-instance
-   :target: https://github.com/ingwersen-erik/cookiepy
+   :target: https://https://github.com/EYLatamSouth/EY-ML-Template
    :alt: Python Version
 .. |License| image:: https://img.shields.io/github/license/ingwersen-erik/cookiepy
    :target: https://opensource.org/licenses/MIT
@@ -31,7 +31,7 @@
    :target: https://github.com/psf/black
    :alt: Black
 .. |Contributor Covenant| image:: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
-   :target: https://github.com/ingwersen-erik/cookiepy/blob/main/CODE_OF_CONDUCT.rst
+   :target: https://https://github.com/EYLatamSouth/EY-ML-Template/blob/main/CODE_OF_CONDUCT.rst
    :alt: Contributor Covenant
 
 .. badges-end
@@ -57,8 +57,8 @@
 :copyright: Copyright (c) EY Brazil, Inc. and its affiliates. All Rights Reserved.
 
 .. meta::
-   :keywords: Cookiecutter, cookiepy, Acelerador DDA
-   :description lang=pt: Readme do pacote cookiepy.
+   :keywords: Cookiecutter, EY-ML-Template, Acelerador DDA
+   :description lang=pt: Readme do pacote EY-ML-Template.
 
 :abstract:
     Cookiecutter para o Acelerador de projetos EY DDA.
@@ -87,7 +87,7 @@ __ https://cookiepy.readthedocs.io/
 Quickstart
 ----------
 
-O ``cookiepy`` requer instalação prévia do pacote `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_.
+O ``EY-ML-Template`` requer instalação prévia do pacote `cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_.
 Execute o seguinte comando para instalar o ``cookiecutter``:
 
 .. code-block:: console
@@ -118,24 +118,13 @@ basta executar o seguinte comando:
 
 .. code-block:: console
 
-   $ cookiecutter gh:ingwersen-erik/cookiepy
-
-
-Exemplo de Uso do ``cookiepy``
-------------------------------
-
-O vídeo abaixo mostra o processo de criação de um novo projeto, utilizando o ``cookiepy``:
-
-.. raw:: html
-
-   <p align="center"><img src="./docs/_static/demo-acelerador-dda.gif" alt="Demo"/></p>
-   <br>
+   $ cookiecutter gh:EYLatamSouth/EY-ML-Template
 
 
 Funcionalidades
 ===============
 
-O pacote gerado pelo ``cookiepy`` possui as seguintes funcionalidades pré-configuradas:
+O pacote gerado pelo ``EY-ML-Template`` possui as seguintes funcionalidades pré-configuradas:
 
 .. features-begin
 
@@ -208,16 +197,16 @@ Informações Adicionais
 Estrutura do repositório
 ------------------------
 
-O ``cookiepy`` possui a seguinte estrutura de pastas:
+O ``EY-ML-Template`` possui a seguinte estrutura de pastas:
 
 .. code-block:: text
 
-    cookiepy
+    EY-ML-Template
     ├── CODE_OF_CONDUCT.rst             <- Código de conduta (copiado de outros templates).
     ├── CONTRIBUTING.rst                <- Guia de contribuição. Está em inglês.
     ├── LICENSE.rst                     <- Licença do projeto (por enquanto está como MIT)
     ├── README.rst                      <- Este arquivo que você está lendo.
-    ├── cookiecutter.json               <- Arquivo com os parâmetros utilizado pelo cookiepy para gerar novos repositórios
+    ├── cookiecutter.json               <- Arquivo com os parâmetros utilizado pelo EY-ML-Template para gerar novos repositórios
     ├── docs                            <- Diretório com a documentação da ferramenta.
     ├── noxfile.py                      <- Arquivo nox com as configurações de testes unitários.
     ├── pycharm.sh                      <- Comando Mac/Linux para inicialização do PyCharm (se instalado).
@@ -238,5 +227,5 @@ TO-DO :construction:
 - [ ] Traduzir o template para português :brazil:.
   Inicialmente, a minha ideia era criar o cookiecutter em inglês,
   já que a maioria das empresas preferem que o código seja escrito em inglês.
-- [ ] Melhorar os tutoriais de como instalar/usar o ``cookiepy``. :basecamp:
+- [ ] Melhorar os tutoriais de como instalar/usar o ``EY-ML-Template``. :basecamp:
 - [ ] Adicionar tutoriais, com melhores práticas, dicas e casos-de-uso da ferramenta. :bulb:

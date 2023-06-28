@@ -8,7 +8,7 @@ when executing the command:
 
 .. code-block:: console
 
-    $ cookiecutter gh:ingwersen-erik/cookiepy
+    $ cookiecutter gh:EYLatamSouth/EY-ML-Template
 
 Additionally, it also checks whether a project of the same name already exists
 and if so, deletes the preexisting project.

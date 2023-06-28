@@ -1,18 +1,18 @@
 ***
 
-sidebar\_position: 1
-title: Cookiepy Hooks
+sidebar_position: 1
+title: EY-ML-Template Hooks
 authors: \[ingwersen]
 ---------------------
 
 ## Overview
 
-Hooks que são executados pré e pós execução do comando `cookiecutter cookiepy`.
+Hooks que são executados pré e pós execução do comando `cookiecutter EY-ML-Template`.
 
 :::tip
 
 Você pode alterar esses arquivos Python para customizar o processo que o
-`cookiecutter cookiepy` executa pré e pós a criação do projeto.
+`cookiecutter EY-ML-Template` executa pré e pós a criação do projeto.
 
 :::
 
@@ -39,7 +39,7 @@ if not re.match(MODULE_REGEX, module_name):
 ```
 
 O código acima verifica o nome do pacote Python que o usuário informou no
-`cookiecutter cookiepy` e, caso não seja válido, exibe uma mensagem de erro e
+`cookiecutter EY-ML-Template` e, caso não seja válido, exibe uma mensagem de erro e
 interrompe o processo de criação do projeto.
 
 :::note

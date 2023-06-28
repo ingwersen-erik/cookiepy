@@ -13,7 +13,7 @@ with open(extra_context_dir, mode='r', encoding='utf-8') as test_file:
 
 
 cookiecutter(
-    'https://github.com/erik-ingwersen-ey/cookiepy.git',
+    'https://github.com/EYLatamSouth/EY-ML-Template.git',
     no_input=True,
     extra_context=extra_ctx,
     replay=True,

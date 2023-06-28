@@ -1,4 +1,4 @@
-Cookiepy Hooks
+EY-ML-Template Hooks
 ==============
 
 .. Links:
@@ -20,8 +20,8 @@ Cookiepy Hooks
 :copyright: Copyright (c) EY Brazil, Inc. and its affiliates. All Rights Reserved.
 
 .. meta::
-   :keywords: Cookiecutter, cookiepy, Acelerador DDA
-   :description lang=en: Readme dos hooks do pacote cookiepy.
+   :keywords: Cookiecutter, EY-ML-Template, Acelerador DDA
+   :description lang=en: Readme dos hooks do pacote EY-ML-Template.
 
 :abstract:
     Cookiecutter para o Acelerador de projetos EY DDA.
@@ -33,10 +33,10 @@ Overview
 
 Os scripts `pre_gen_project.py` e `post_gen_project.py` são hooks utilizados pelo cookiecutter
 para criação do repositório. Estes scripts definem o fluxo de geração de novos repositórios de acordo com os valores
-que você definiu durante a execução do comando `cookiecutter cookiepy.`.
+que você definiu durante a execução do comando `cookiecutter EY-ML-Template.`.
 
 Eles são responsáveis por:
-Hooks que são executados pré e pós execução do comando `cookiecutter cookiepy`.
+Hooks que são executados pré e pós execução do comando `cookiecutter EY-ML-Template`.
 
-Você pode alterar esses arquivos Python para customizar o processo que o `cookiecutter cookiepy` executa
+Você pode alterar esses arquivos Python para customizar o processo que o `cookiecutter EY-ML-Template` executa
 pré e pós a criação do projeto.

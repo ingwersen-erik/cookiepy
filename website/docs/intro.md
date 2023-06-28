@@ -1,6 +1,6 @@
 ***
 
-sidebar\_position: 1
+sidebar_position: 1
 title: Getting Started
 authors: \[ingwersen]
 ---------------------
@@ -13,7 +13,7 @@ authors: \[ingwersen]
 [![Codecov](https://codecov.io/gh/ingwersen-erik/cookiepy-instance/branch/main/graph/badge.svg)](https://codecov.io/gh/ingwersen-erik/cookiepy-instance)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/ingwersen-erik/cookiepy/blob/main/CODE_OF_CONDUCT.rst)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://https://github.com/EYLatamSouth/EY-ML-Template/blob/main/CODE_OF_CONDUCT.rst)
 
 ***
 
@@ -33,7 +33,7 @@ pacotes em Python e, como usar ferramentas de versionamento de código
 
 ## Quickstart
 
-O `cookiepy` requer instalação prévia do pacote [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/).
+O `EY-ML-Template` requer instalação prévia do pacote [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/).
 Execute o seguinte comando para instalar o [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/):
 
 ```console
@@ -70,19 +70,13 @@ basta executar o seguinte comando:
 
 ```console
 
-$ cookiecutter gh:ingwersen-erik/cookiepy
+$ cookiecutter gh:EYLatamSouth/EY-ML-Template
 
 ```
 
-## Exemplo de Uso do `cookiepy`
-
-O vídeo abaixo exemplifica o processo de criação de um novo projeto, utilizando o `cookiepy`:
-
-![](../../docs/_static/demo-acelerador-dda.gif)
-
 ## Funcionalidades
 
-O pacote `cookiepy` gera um pacote que configura automaticamente as seguintes funcionalidades:
+O pacote `EY-ML-Template` gera um pacote que configura automaticamente as seguintes funcionalidades:
 
 *   Gerenciamento e empacotamento de pacotes usando [Poetry](https://python-poetry.org/)
 *   Automatização de testes usando [Nox](https://nox.thea.codes/)
@@ -115,16 +109,16 @@ O pacote `cookiepy` gera um pacote que configura automaticamente as seguintes fu
 
 ## Estrutura deste Repositório
 
-O `cookiepy` possui a seguinte estrutura de pastas:
+O `EY-ML-Template` possui a seguinte estrutura de pastas:
 
 ```
 
-cookiepy
+EY-ML-Template
 ├── CODE_OF_CONDUCT.rst             <- Código de conduta (copiado de outros templates).
 ├── CONTRIBUTING.rst                <- Guia de contribuição. Está em inglês.
 ├── LICENSE.rst                     <- Licença do projeto (por enquanto está como MIT)
 ├── README.rst                      <- Este arquivo que você está lendo.
-├── cookiecutter.json               <- Arquivo com os parâmetros utilizado pelo cookiepy para gerar novos repositórios
+├── cookiecutter.json               <- Arquivo com os parâmetros utilizado pelo EY-ML-Template para gerar novos repositórios
 ├── docs                            <- Diretório com a documentação da ferramenta.
 ├── noxfile.py                      <- Arquivo nox com as configurações de testes unitários.
 ├── pycharm.sh                      <- Comando Mac/Linux para inicialização do PyCharm (se instalado).
@@ -140,11 +134,11 @@ cookiepy
 
 ```
 
-## Como o cookiepy define um modelo de repositório
+## Como o EY-ML-Template define um modelo de repositório
 
 O processo de automação de geração de repositórios basicamente utiliza internamente
 o framework que definido pelo [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/).
-Sendo assim, todas as regras do `cookiepy` foram definidas em somente 2 arquivos:
+Sendo assim, todas as regras do `EY-ML-Template` foram definidas em somente 2 arquivos:
 
 1.  `pre_gen_project.py`: roteiro de instruções que precisam serem executadas **antes** da geração do repositório.
 2.  `post_gen_project.py`: roteiro de instruções que precisam serem executadas **após** da geração do repositório.
@@ -177,7 +171,7 @@ Para adicionar novas configurações, com perguntas feitas para o usuário
 durante a execução, primeiro é necessário alterar o arquivo
 [`.cookiecutter.json`](../../cookiecutter.json). Dentro deste arquivo JSON, são
 definidas todas as perguntas que o usuário precisa responder ao executar o comando
-`cookiecutter gh:ingwersen-erik/cookiepy`.
+`cookiecutter gh:EYLatamSouth/EY-ML-Template`.
 O JSON requer que o nome do seu novo parâmetro seja definido como chave
 e possíveis valores que o usuário pode responder, ou um valor pré-definido comum
 deverão ser os valores desta chave.
@@ -187,6 +181,6 @@ deverão ser os valores desta chave.
 *   \[ ] Traduzir o modelo para português.
     Inicialmente, a minha ideia era criar o cookiecutter em inglês,
     já que a maioria das empresas prefere que o código seja escrito em inglês.
-*   \[ ] Melhorar os tutoriais de como instalar/usar o `cookiepy`.
+*   \[ ] Melhorar os tutoriais de como instalar/usar o `EY-ML-Template`.
 *   \[ ] Adicionar tutoriais, com melhores práticas, dicas e casos-de-uso da ferramenta.
 *   \[ ] Incluir módulos com funções helpers que podem ser úteis para o usuário.

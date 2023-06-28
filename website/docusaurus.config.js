@@ -6,11 +6,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'cookiepy',
+    title: 'EY-ML-Template',
     tagline: 'Cookiecutter for Python projects.',
-    baseUrl: '/cookiepy/',
+    baseUrl: '/EY-ML-Template/',
     deploymentBranch: 'documentation',
-    url: 'https://ingwersen-erik.github.io/',
+    url: 'https://github.com/EYLatamSouth',
     trailingSlash: false,
     onBrokenLinks: 'ignore',
     onBrokenMarkdownLinks: 'ignore',
@@ -18,8 +18,8 @@ const config = {
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'ingwersen-erik', // Usually your GitHub org/user name.
-    projectName: 'cookiepy', // Usually your repo name.
+    organizationName: 'EY Latam South Digital', // Usually your GitHub org/user name.
+    projectName: 'EY-ML-Template', // Usually your repo name.
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
@@ -39,14 +39,14 @@ const config = {
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://github.com/ingwersen-erik/cookiepy/',
+                        'https://https://github.com/EYLatamSouth/EY-ML-Template/',
                 },
                 blog: {
                     showReadingTime: true,
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://github.com/ingwersen-erik/cookiepy/',
+                        'https://https://github.com/EYLatamSouth/EY-ML-Template/',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
@@ -59,7 +59,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: 'Cookiepy',
+                title: 'EY-ML-Template',
                 logo: {
                     alt: 'EY Logo',
                     src: 'img/logo.svg',
@@ -73,7 +73,7 @@ const config = {
                     },
                     {to: '/blog', label: 'Blog', position: 'left'},
                     {
-                        href: 'https://github.com/ingwersen-erik/cookiepy/',
+                        href: 'https://https://github.com/EYLatamSouth/EY-ML-Template/',
                         label: 'GitHub',
                         position: 'right',
                     },
