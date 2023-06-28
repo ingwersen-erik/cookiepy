@@ -6,7 +6,7 @@ import nox
 from nox.sessions import Session
 
 nox.options.sessions = ["docs"]
-owner, repository = "ingwersen-erik", "cookiepy"
+owner, repository = "EYLatamSouth", "EY-ML-Template"
 labels = "cookiecutter", "documentation"
 bump_paths = "README.rst", "docs/guide.rst", "docs/index.rst", "docs/quickstart.rst"
 

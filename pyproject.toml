@@ -2,14 +2,14 @@
 
 [tool.poetry]
 # Define project name, version, description, etc.
-name = 'cookiepy'
+name = 'EY-ML-Template'
 version = "0.1.1"
 description = 'Cookiecutter com template pra automação da criação de reposiórios Python para projetos.'
 readme = 'README.rst'
 authors = [ 'ingwersen-erik <erik.ingwersen@br.ey.com>' ]
 license = 'MIT'
-repository = "https://github.com/ingwersen-erik/cookiepy"
-homepage = "https://github.com/ingwersen-erik/cookiepy"
+repository = "https://https://github.com/EYLatamSouth/EY-ML-Template"
+homepage = "https://https://github.com/EYLatamSouth/EY-ML-Template"
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",

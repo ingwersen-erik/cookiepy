@@ -8,7 +8,7 @@ const FeatureList = [
         Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
         description: (
             <>
-                Cookiepy automates Python package creation and configuration
+                EY-ML-Template automates Python package creation and configuration
                 with
                 CI/CD. It's easy to use, even for developers unfamiliar with the
                 tool. It handles the configuration automatically, freeing up
@@ -22,7 +22,7 @@ const FeatureList = [
         Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
         description: (
             <>
-                Cookiepy simplifies the process of creating and configuring
+                EY-ML-Template simplifies the process of creating and configuring
                 Python packages, allowing you to focus on developing and testing
                 packages that meet your business needs. It saves you time and
                 effort by handling the configuration and tools for you.

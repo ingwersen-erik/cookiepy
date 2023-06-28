@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erik-ingwersen-ey/cookiepy.git"
+    "url": "git+https://github.com/EYLatamSouth/EY-ML-Template.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/erik-ingwersen-ey/cookiepy/issues"
+    "url": "https://github.com/EYLatamSouth/EY-ML-Template/issues"
   },
-  "homepage": "https://github.com/erik-ingwersen-ey/cookiepy#readme",
+  "homepage": "https://github.com/EYLatamSouth/EY-ML-Template#readme",
   "devDependencies": {
     "remark-cli": "^11.0.0",
     "remark-lint": "^9.1.1",

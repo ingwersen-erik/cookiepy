@@ -16,9 +16,9 @@ Here is a list of important resources for contributors:
 - `Code of Conduct`_
 
 .. _MIT license: https://opensource.org/licenses/MIT
-.. _Source Code: https://github.com/ingwersen-erik/cookiepy
+.. _Source Code: https://https://github.com/EYLatamSouth/EY-ML-Template
 .. _Documentation: https://cookiepy.readthedocs.io/
-.. _Issue Tracker: https://github.com/ingwersen-erik/cookiepy/issues
+.. _Issue Tracker: https://https://github.com/EYLatamSouth/EY-ML-Template/issues
 
 
 How to report a bug
@@ -59,7 +59,7 @@ can now generate a project from your development version:
 
 .. code:: console
 
-   $ cookiecutter path/to/cookiepy
+   $ cookiecutter path/to/EY-ML-Template
 
 You may also want to push your generated project to GitHub,
 and set up `continuous integration`_.
@@ -97,7 +97,7 @@ Feel free to submit early, though—we can always iterate on this.
 It is recommended to open an issue before starting work on anything.
 This will allow a chance to talk it over with the owners and validate your approach.
 
-.. _pull request: https://github.com/ingwersen-erik/cookiepy/pulls
+.. _pull request: https://https://github.com/EYLatamSouth/EY-ML-Template/pulls
 
 
 How to accept changes
