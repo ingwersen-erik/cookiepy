@@ -1,6 +1,6 @@
 # Contributor Guide
 
-This section specifies the **contributing guidelines** for *{{cookiecutter.friendly\_name}}* project.
+This section specifies the **contributing guidelines** for *{{cookiecutter.friendly_name}}* project.
 
 This project is {%- if cookiecutter.license != 'Proprietary' %}open-source under the \[{{cookiecutter.license.replace("-", " ")}} license] and we welcome any contributions in the form of bug reports,
 feature requests, and pull requests.{ % - else %}a proprietary project under the \[{{cookiecutter.license.replace("-", " ")}} license], and only allowed developers have the legal rights to make changes
@@ -146,7 +146,7 @@ If you don't have Poetry installed, please refer to the following
 [guide](https://python-poetry.org/docs/#installation), for instructions on how
 to install it.
 
-### Install *{{cookiecutter.friendly\_name}}*
+### Install *{{cookiecutter.friendly_name}}*
 
 Install the package with development requirements:
 
